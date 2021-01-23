@@ -55,6 +55,7 @@ export default class CreateUser extends Component {
             <input type="submit" value="Create User" className="btn btn-primary" />
           </div>
         </form>
+        <p className ="description">Note: Usernames must be greater than 3 characters and must not be a duplicate of an existing username.</p>
       </div>
     )
   }

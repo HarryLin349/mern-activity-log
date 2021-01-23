@@ -3,6 +3,8 @@ import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
+const serverURL = process.env.PORT || "http://localhost:5000"
+
 export default class CreateExercise extends Component {
   constructor(props) {
     super(props);
@@ -23,7 +25,7 @@ export default class CreateExercise extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/users/')
+    axios.get(serverURL + '/users/')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
@@ -74,7 +76,7 @@ export default class CreateExercise extends Component {
 
     console.log(exercise);
 
-    axios.post('http://localhost:5000/exercises/add', exercise)
+    axios.post(serverURL + '/exercises/add', exercise)
       .then(res => console.log(res.data));
 
     window.location = '/';
@@ -83,7 +85,7 @@ export default class CreateExercise extends Component {
   render() {
     return (
     <div>
-      <h3>Create New Exercise Log</h3>
+      <h3>Log an Activity</h3>
       <form onSubmit={this.onSubmit}>
         <div className="form-group"> 
           <label>Username: </label>
@@ -131,7 +133,7 @@ export default class CreateExercise extends Component {
         </div>
 
         <div className="form-group">
-          <input type="submit" value="Create Exercise Log" className="btn btn-primary" />
+          <input type="submit" value="Log it!" className="btn btn-primary" />
         </div>
       </form>
     </div>

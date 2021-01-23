@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
+const serverURL = process.env.PORT || "http://localhost:5000"
 const Exercise = props => (
   <tr>
     <td>{props.exercise.username}</td>
@@ -24,7 +24,7 @@ export default class ExercisesList extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/exercises/')
+    axios.get(serverURL + '/exercises/')
       .then(response => {
         this.setState({ exercises: response.data })
       })
@@ -34,7 +34,7 @@ export default class ExercisesList extends Component {
   }
 
   deleteExercise(id) {
-    axios.delete('http://localhost:5000/exercises/'+id)
+    axios.delete(serverURL + '/exercises/'+id)
       .then(response => { console.log(response.data)});
 
     this.setState({
@@ -51,13 +51,13 @@ export default class ExercisesList extends Component {
   render() {
     return (
       <div>
-        <h3>Logged Exercises</h3>
+        <h3>Activity Log</h3>
         <table className="table">
           <thead className="thead-light">
             <tr>
               <th>Username</th>
               <th>Description</th>
-              <th>Duration</th>
+              <th>Duration (minutes)</th>
               <th>Date</th>
               <th>Actions</th>
             </tr>
