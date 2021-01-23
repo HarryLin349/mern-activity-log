@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+const serverURL = process.env.PORT || "http://localhost:5000"
 export default class CreateUser extends Component {
   constructor(props) {
     super(props);
@@ -28,7 +29,7 @@ export default class CreateUser extends Component {
 
     console.log(user);
 
-    axios.post('/api/users/add', user)
+    axios.post(serverURL + '/users/add', user)
       .then(res => console.log(res.data));
 
     this.setState({
