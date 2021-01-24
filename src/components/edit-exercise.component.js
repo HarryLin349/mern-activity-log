@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-
+const serverURL = process.env.PORT || "http://localhost:5000"
 export default class EditExercise extends Component {
   constructor(props) {
     super(props);
@@ -23,7 +23,7 @@ export default class EditExercise extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/exercises/'+this.props.match.params.id)
+    axios.get(serverURL + '/exercises/'+this.props.match.params.id)
       .then(response => {
         this.setState({
           username: response.data.username,
@@ -36,7 +36,7 @@ export default class EditExercise extends Component {
         console.log(error);
       })
 
-    axios.get('http://localhost:5000/users/')
+    axios.get(serverURL + '/users/')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
@@ -86,7 +86,7 @@ export default class EditExercise extends Component {
 
     console.log(exercise);
 
-    axios.post('http://localhost:5000/exercises/update/' + this.props.match.params.id, exercise)
+    axios.post(serverURL + '/exercises/update/' + this.props.match.params.id, exercise)
       .then(res => console.log(res.data));
 
     window.location = '/';
@@ -95,7 +95,7 @@ export default class EditExercise extends Component {
   render() {
     return (
     <div>
-      <h3>Edit Exercise Log</h3>
+      <h3>Edit Activity Log</h3>
       <form onSubmit={this.onSubmit}>
         <div className="form-group"> 
           <label>Username: </label>
@@ -143,7 +143,7 @@ export default class EditExercise extends Component {
         </div>
 
         <div className="form-group">
-          <input type="submit" value="Edit Exercise Log" className="btn btn-primary" />
+          <input type="submit" value="Finish Editing" className="btn btn-primary" />
         </div>
       </form>
     </div>
