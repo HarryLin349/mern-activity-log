@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
-const serverURL = process.env.PORT || "http://localhost:5000"
+const serverURL = "https://cors-anywhere.herokuapp.com/https://sheltered-headland-99987.herokuapp.com";
 export default class CreateUser extends Component {
   constructor(props) {
     super(props);

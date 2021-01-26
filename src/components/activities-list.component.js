@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-const serverURL = process.env.PORT || "http://localhost:5000"
+const serverURL = "https://cors-anywhere.herokuapp.com/https://sheltered-headland-99987.herokuapp.com";
 const Activity = props => (
   <tr>
     <td>{props.activity.username}</td>

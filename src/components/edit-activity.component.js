@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-const serverURL = process.env.PORT || "http://localhost:5000"
-export default class EditExercise extends Component {
+const serverURL = "https://cors-anywhere.herokuapp.com/https://sheltered-headland-99987.herokuapp.com";
+export default class EditActivity extends Component {
   constructor(props) {
     super(props);
 
@@ -23,7 +23,7 @@ export default class EditExercise extends Component {
   }
 
   componentDidMount() {
-    axios.get(serverURL + '/exercises/'+this.props.match.params.id)
+    axios.get(serverURL + '/activities/'+this.props.match.params.id)
       .then(response => {
         this.setState({
           username: response.data.username,
@@ -77,16 +77,16 @@ export default class EditExercise extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const exercise = {
+    const activity = {
       username: this.state.username,
       description: this.state.description,
       duration: this.state.duration,
       date: this.state.date
     }
 
-    console.log(exercise);
+    console.log(activity);
 
-    axios.post(serverURL + '/exercises/update/' + this.props.match.params.id, exercise)
+    axios.post(serverURL + '/activities/update/' + this.props.match.params.id, activity)
       .then(res => console.log(res.data));
 
     window.location = '/';
