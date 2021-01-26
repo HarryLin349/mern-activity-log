@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-const serverURL = "https://cors-anywhere.herokuapp.com/https://sheltered-headland-99987.herokuapp.com";
+
+const serverURL = "https://sheltered-headland-99987.herokuapp.com";
 export default class CreateActivity extends Component {
   constructor(props) {
     super(props);
