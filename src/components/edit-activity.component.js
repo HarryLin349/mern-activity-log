@@ -89,7 +89,10 @@ export default class EditActivity extends Component {
     axios.post(serverURL + '/activities/update/' + this.props.match.params.id, activity)
       .then(res => console.log(res.data));
 
-    window.location = '/';
+      setTimeout(function(){
+        window.location = '/log';
+        
+      }, 1000); 
   }
 
   render() {

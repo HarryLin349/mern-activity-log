@@ -6,6 +6,12 @@
   height: 7rem;
   color: #9591a1;
 }
+
+.center{
+  position: relative;
+  top: 40%;
+  transform: translateY(-50%);
+}
 .App {
   text-align: center;
 }

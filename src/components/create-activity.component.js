@@ -77,8 +77,11 @@ export default class CreateActivity extends Component {
 
     axios.post(serverURL + '/activities/add', activity)
       .then(res => console.log(res.data));
-
-    window.location = '/';
+      setTimeout(function(){
+        window.location = '/log';
+        
+      }, 1000); 
+    //window.location = '/log';
   }
 
   render() {
