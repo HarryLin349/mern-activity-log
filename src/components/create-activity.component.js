@@ -80,7 +80,7 @@ export default class CreateActivity extends Component {
       setTimeout(function(){
         window.location = '/log';
         
-      }, 1000); 
+      }, 800); 
     //window.location = '/log';
   }
 

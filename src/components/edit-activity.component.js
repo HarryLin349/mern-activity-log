@@ -92,7 +92,7 @@ export default class EditActivity extends Component {
       setTimeout(function(){
         window.location = '/log';
         
-      }, 1000); 
+      }, 800); 
   }
 
   render() {

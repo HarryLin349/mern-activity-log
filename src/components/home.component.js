@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import demo from "./sample.mp4"
+import demo from "./sample2.mp4"
 import axios from 'axios';
 const serverURL = "https://sheltered-headland-99987.herokuapp.com";
 export default class Home extends Component {
