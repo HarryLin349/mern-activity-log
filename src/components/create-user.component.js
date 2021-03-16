@@ -29,6 +29,15 @@ export default class CreateUser extends Component {
 
     console.log(user);
 
+    var x = document.getElementById("snackbar");
+
+    // Add the "show" class to DIV
+    x.className = "show";
+
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+
+
     axios.post(serverURL + '/users/add', user)
       .then(res => console.log(res.data));
 
@@ -42,20 +51,21 @@ export default class CreateUser extends Component {
       <div>
         <h3>Create New User</h3>
         <form onSubmit={this.onSubmit}>
-          <div className="form-group"> 
+          <div className="form-group">
             <label>Username: </label>
-            <input  type="text"
-                required
-                className="form-control"
-                value={this.state.username}
-                onChange={this.onChangeUsername}
-                />
+            <input type="text"
+              required
+              className="form-control"
+              value={this.state.username}
+              onChange={this.onChangeUsername}
+            />
           </div>
           <div className="form-group">
             <input type="submit" value="Create User" className="btn btn-primary" />
           </div>
         </form>
-        <p className ="description">Note: Usernames must be greater than 3 characters and must not be a duplicate of an existing username.</p>
+        <p className="description">Note: Usernames must be greater than 3 characters and must not be a duplicate of an existing username.</p>
+        <div id="snackbar">User Added!</div>
       </div>
     )
   }
