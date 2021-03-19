@@ -74,7 +74,7 @@ export default class EditActivity extends Component {
     })
   }
 
-  onSubmit(e) {
+  async onSubmit(e) {
     e.preventDefault();
 
     const activity = {
@@ -86,13 +86,14 @@ export default class EditActivity extends Component {
 
     console.log(activity);
 
-    axios.post(serverURL + '/activities/update/' + this.props.match.params.id, activity)
-      .then(res => console.log(res.data));
+    await axios.post(serverURL + '/activities/update/' + this.props.match.params.id, activity);
+    window.location = '/log';
+//      .then(res => console.log(res.data));
 
-      setTimeout(function(){
-        window.location = '/log';
+//      setTimeout(function(){
+//        window.location = '/log';
         
-      }, 800); 
+//      }, 800); 
   }
 
   render() {
