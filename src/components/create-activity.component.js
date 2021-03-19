@@ -63,7 +63,7 @@ export default class CreateActivity extends Component {
     })
   }
 
-  onSubmit(e) {
+  async onSubmit(e) {
     e.preventDefault();
 
     const activity = {
@@ -75,13 +75,12 @@ export default class CreateActivity extends Component {
 
     console.log(activity);
 
-    axios.post(serverURL + '/activities/add', activity)
-      .then(res => console.log(res.data));
-      setTimeout(function(){
-        window.location = '/log';
-        
-      }, 800); 
-    //window.location = '/log';
+    await axios.post(serverURL + '/activities/add', activity);
+//      .then(res => console.log(res.data));
+//      setTimeout(function(){
+//        window.location = '/log';      
+//      }, 800); 
+    window.location = '/log';
   }
 
   render() {
